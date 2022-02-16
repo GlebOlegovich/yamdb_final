@@ -1,8 +1,9 @@
 import os
 
-from api_yamdb.settings import BASE_DIR
 from reviews.models import (Category, Comment, Genre, GenreTitle, Review,
                             Title, User)
+
+from api_yamdb.settings import BASE_DIR
 
 DIR_CSV = os.path.join(BASE_DIR, 'static/data')
 
