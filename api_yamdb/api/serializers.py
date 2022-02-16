@@ -1,5 +1,5 @@
-from django.utils import timezone
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.generics import get_object_or_404
 

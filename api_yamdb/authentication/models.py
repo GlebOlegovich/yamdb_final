@@ -2,7 +2,8 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.db import models
 
-from api_yamdb.settings import ROLE, GLOBAL_SETTINGS
+from api_yamdb.settings import GLOBAL_SETTINGS, ROLE
+
 from .validators import NotMeUsername
 
 

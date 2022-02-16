@@ -1,8 +1,9 @@
-import os
-import datetime as dt
-from tqdm import tqdm
 import csv
+import datetime as dt
+import os
+
 from django.core.management.base import BaseCommand
+from tqdm import tqdm
 
 from ._settings_for_import import DIR_CSV, NEED_TO_PARSE, TIME_FORMAT
 

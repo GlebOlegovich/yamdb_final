@@ -1,21 +1,22 @@
 from django.contrib.auth import get_user_model
 from django.db.models import Avg
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, status, viewsets, mixins
+from rest_framework import filters, mixins, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
-from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
-from reviews.models import Category, Genre, Review, Title, Comment
+from reviews.models import Category, Comment, Genre, Review, Title
+
 from .filters import TitleFilter
+from .paginators import FourPerPagePagination
 from .permissions import (AdminOrSuperuser, IsAdminOrReadOnly,
                           IsUserAnonModerAdmin)
 from .serializers import (CategorySerializer, CommentSerializer,
                           GenreSerializer, InputTitleSerializer,
                           OutputTitleSerializer, ReviewSerializer,
                           UserInfoSerializer, UserSerializer)
-from .paginators import FourPerPagePagination
 
 User = get_user_model()
 
