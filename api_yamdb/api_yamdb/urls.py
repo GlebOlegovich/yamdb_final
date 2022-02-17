@@ -15,11 +15,11 @@ urlpatterns = [
         'authentication.urls',
         namespace='authentication'
     )),
-    path(
-        'redoc/',
-        TemplateView.as_view(template_name='redoc.html'),
-        name='redoc'
-    )
+    # path(
+    #     'redoc/',
+    #     TemplateView.as_view(template_name='redoc.html'),
+    #     name='redoc'
+    # )
 ]
 
 if settings.DEBUG:
