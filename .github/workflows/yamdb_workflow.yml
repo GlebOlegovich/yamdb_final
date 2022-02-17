@@ -80,7 +80,7 @@ jobs:
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
           sudo docker-compose up -d 
           sudo docker-compose exec -T web python manage.py migrate
-          echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@myproject.com', 'admin')" | sudo docker-compose exec -T web python manage.py shell
+          echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser(${{ secrets.ADMIN_USERNAME }}, 'example@example.com', ${{ secrets.ADMIN_PASSWORD }})" | sudo docker-compose exec -T web python manage.py shell
 
           # без -T была ошибка с TTY связанная
           sudo docker-compose exec -T web python manage.py collectstatic --no-input
