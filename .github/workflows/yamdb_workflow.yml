@@ -69,7 +69,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE_SERVER }}
         script: |
-          sudo docker pull godleib/api_yamdb:latest
+          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb_api:latest
           sudo docker-compose down -v
           touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
