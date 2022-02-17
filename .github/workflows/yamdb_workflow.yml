@@ -53,7 +53,7 @@ jobs:
         with:
           # file: ./api_yamdb/Dockerfile
           # context: ./api_yamdb
-          context: backend/
+          context: api_yamdb/
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/yamdb_api:latest
   
