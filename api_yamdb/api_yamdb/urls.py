@@ -1,10 +1,12 @@
 from django.conf import settings
 from django.conf.urls import url
 from django.contrib import admin
+from django.views.generic import TemplateView 
 from django.urls import include, path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+
 
 # from django.views.generic import TemplateView
 urlpatterns = [
@@ -14,11 +16,11 @@ urlpatterns = [
         'authentication.urls',
         namespace='authentication'
     )),
-    # path(
-    #     'redoc/',
-    #     TemplateView.as_view(template_name='redoc.html'),
-    #     name='redoc'
-    # )
+    path(
+        'redoc-TechSpec/',
+        TemplateView.as_view(template_name='redoc.html'),
+        name='redoc'
+    )
 ]
 
 if settings.DEBUG:
