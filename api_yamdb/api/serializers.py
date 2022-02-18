@@ -2,9 +2,9 @@ from django.contrib.auth import get_user_model
 from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.generics import get_object_or_404
-from reviews.models import Category, Comment, Genre, Review, Title
 
 from api_yamdb.settings import ROLE
+from reviews.models import Category, Comment, Genre, Review, Title
 
 User = get_user_model()
 

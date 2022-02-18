@@ -1,5 +1,6 @@
-from authentication.views import get_or_create_user, get_token
 from django.urls import include, path
+
+from authentication.views import get_or_create_user, get_token
 
 app_name = 'authentication'
 
