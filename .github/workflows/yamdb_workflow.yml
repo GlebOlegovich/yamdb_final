@@ -39,7 +39,8 @@ jobs:
       name: Send message if Tests failed
       # Если был exit 1
       # if: ${{ failure() }}
-      if: ${{ steps.run_tests.conclusion=='failure' }}
+      # if: ${{ steps.run_tests.conclusion=='failure' }}
+      if: ${{ run_tests.status == 'failure' }}
       # if: always()
       uses: appleboy/telegram-action@master
       with:
