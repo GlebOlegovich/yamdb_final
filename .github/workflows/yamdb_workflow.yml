@@ -48,6 +48,7 @@ jobs:
           Ошибка при тестировании - ${{ github.repository }}
           ${{ github.run_id }}
           ${{ github.run_number }}
+          ${{ github.run_attempt }}
           
 
   # build_and_push_to_docker_hub:
