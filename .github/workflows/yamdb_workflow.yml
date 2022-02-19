@@ -25,9 +25,9 @@ jobs:
 
     - 
       name: Test with flake8
+      id: run_tests
       run: |
         python -m flake8
-      id: run_tests
 
     - 
       name: Pytest
@@ -42,8 +42,8 @@ jobs:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
+          ${{ join(steps.run_tests.outputs.*, '\n') }}
           Ошибка при тестировании - ${{ github.repository }}
-          ${{join(steps.run_tests.outputs.*, '\n')}}
 
 
   # build_and_push_to_docker_hub:
