@@ -46,8 +46,9 @@ jobs:
         # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
           Ошибка при тестировании - ${{ github.repository }}
-          ${{ github.action_ref }}
-
+          ${{ github.run_id }}
+          ${{ github.run_number }}
+          
 
   # build_and_push_to_docker_hub:
   #   name: Push Docker image to Docker Hub
