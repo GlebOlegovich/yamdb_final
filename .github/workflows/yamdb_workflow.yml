@@ -29,6 +29,7 @@ jobs:
       # python -m flake8
       run: |
         export Flake_8=python -m flake8  echo "::set-env name=Flake8::$Flake_8"
+      run: echo $Flake8 
       id: run_tests
 
     - 
@@ -47,7 +48,7 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
-          ${{ steps.run_tests.outputs.Flake8 }}
+          ${{ Flake8 }}
 
           Ошибка при тестировании - ${{ github.repository }}
 
