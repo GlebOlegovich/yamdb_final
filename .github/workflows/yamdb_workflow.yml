@@ -41,7 +41,7 @@ jobs:
       # Если был exit 1
       # if: ${{ failure() }}
       # if: ${{ steps.run_tests.conclusion=='failure' }}
-      if: always() && ${{ steps.run_tests.status == 'failure' }}
+      if: ${{ steps.run_tests.outcome == 'failure' || steps.run_tests.conclusion == 'failure'}}
       # if: always()
       uses: appleboy/telegram-action@master
       with:
