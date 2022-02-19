@@ -26,8 +26,9 @@ jobs:
     - 
       name: Test with flake8
       id: run_tests
+      # echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
       run: |
-        echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
+        python -m flake8
 
     - 
       name: Pytest
@@ -36,13 +37,14 @@ jobs:
     - 
       name: Send message if Tests failed
       # Если был exit 1
-      # if: ${{ failure() }}
+      if: ${{ failure() }}
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
+        # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
-          ${{ join(steps.run_tests.outputs.*, '\n') }}
+          
           ${{ steps.run_tests.outputs.labels }} - ${{ steps.run_tests.outcome }}
           Ошибка при тестировании - ${{ github.repository }}
 
