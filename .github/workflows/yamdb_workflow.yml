@@ -32,6 +32,7 @@ jobs:
         python -m flake8
     - 
       name: Pytest
+      if: always()
       run: |
         pytest
         cat
@@ -40,7 +41,7 @@ jobs:
       # Если был exit 1
       # if: ${{ failure() }}
       # if: ${{ steps.run_tests.conclusion=='failure' }}
-      if: ${{ run_tests.status == 'failure' }}
+      if: always() && ${{ steps.run_tests.status == 'failure' }}
       # if: always()
       uses: appleboy/telegram-action@master
       with:
