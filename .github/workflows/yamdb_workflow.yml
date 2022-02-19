@@ -31,7 +31,9 @@ jobs:
         export Flake_8=python -m flake8  echo "::set-env name=Flake8::$Flake_8"
       id: run_tests
 
-    - run: echo $Flake8 
+    - 
+      if: ${{ failure() }}
+      run: echo $Flake8 
     - 
       name: Pytest
       run: |
