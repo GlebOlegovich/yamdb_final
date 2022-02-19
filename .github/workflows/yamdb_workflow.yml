@@ -28,8 +28,7 @@ jobs:
       # echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
       # python -m flake8
       run: |
-        echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
-        python -m flake8
+        export Flake_8=python -m flake8  echo "::set-env name=Flake8::$Flake_8"
       id: run_tests
 
     - 
