@@ -42,7 +42,7 @@ jobs:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
-          ${{ join(steps.run_tests.outputs.*, '\n') }}
+          ${{ steps.run_tests.outputs.* }}
           Ошибка при тестировании - ${{ github.repository }}
 
 
