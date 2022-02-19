@@ -24,6 +24,7 @@ jobs:
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
 
     - 
+      id: 
       name: Test with flake8
       # echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
       # python -m flake8
@@ -37,8 +38,8 @@ jobs:
     - 
       name: Send message if Tests failed
       # Если был exit 1
-      if: ${{ failure() }}
-      # if: ${{ steps.run_tests.result=='failure' }}
+      # if: ${{ failure() }}
+      if: ${{ steps.run_tests.result=='failure' }}
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
@@ -46,9 +47,7 @@ jobs:
         # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
           Ошибка при тестировании - ${{ github.repository }}
-          ${{ github.run_id }}
-          ${{ github.run_number }}
-          ${{ github.run_attempt }}
+          https://github.com/${{ github.repository }}actions/runs/${{ github.run_id }}
           
 
   # build_and_push_to_docker_hub:
