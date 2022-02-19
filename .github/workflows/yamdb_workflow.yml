@@ -45,8 +45,7 @@ jobs:
         # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
           
-          ${{ steps.run_tests.outputs.stdout }}
-          ${{ steps.run_tests.outputs.stderr }}
+          ${{ steps.run_tests.outputs.* }}
           Ошибка при тестировании - ${{ github.repository }}
 
 
