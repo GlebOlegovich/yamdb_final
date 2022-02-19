@@ -40,7 +40,7 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           Ошибка при тестировании - ${{ github.repository }}
-          ${{ steps }} ${{ jobs }}
+          ${{ steps }}
 
 
   # build_and_push_to_docker_hub:
