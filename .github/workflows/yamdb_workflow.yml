@@ -24,7 +24,7 @@ jobs:
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
 
     - 
-      id: 
+      id: run_tests
       name: Test with flake8
       # echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
       # python -m flake8
