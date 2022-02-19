@@ -27,12 +27,8 @@ jobs:
       name: Test with flake8
       id: run_tests
       # echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
-      outputs: 
-        out_tests: |
-          echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
       run: |
         python -m flake8
-      
 
     - 
       name: Pytest
@@ -49,7 +45,8 @@ jobs:
         # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
           
-          ${{ steps.run_tests.outputs.out_tests }}
+          ${{ steps.run_tests.outputs.stdout }}
+          ${{ steps.run_tests.outputs.stderr }}
           Ошибка при тестировании - ${{ github.repository }}
 
 
