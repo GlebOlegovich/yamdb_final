@@ -39,13 +39,14 @@ jobs:
       name: Send message if Tests failed
       # Если был exit 1
       # if: ${{ failure() }}
-      if: ${{ steps.run_tests.outcome == 'failure' }}
+      if: ${{ steps.run_tests.conclusion == 'failure' }}
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
+          ${{ steps.run_tests.outcome }}
           Ошибка при тестировании - ${{ github.repository }}
           https://github.com/${{ github.repository }}actions/runs/${{ github.run_id }}
           
