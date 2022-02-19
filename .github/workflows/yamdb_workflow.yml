@@ -36,6 +36,7 @@ jobs:
       name: Pytest
       run: |
         pytest
+        cat
     - 
       name: Send message if Tests failed
       # Если был exit 1
@@ -47,7 +48,7 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
-          ${{ join(steps.run_tests.outputs.*, '\n' )}}
+          ${{ steps.run_tests.* }}
 
           Ошибка при тестировании - ${{ github.repository }}
 
