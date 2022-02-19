@@ -25,7 +25,7 @@ jobs:
 
     - 
       id: run_tests
-      name: Test with flake8
+      name: run_tests
       # echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
       # python -m flake8
       run: |
@@ -41,7 +41,8 @@ jobs:
       # Если был exit 1
       # if: ${{ failure() }}
       # if: ${{ steps.run_tests.conclusion=='failure' }}
-      if: ${{steps.run_tests.outcome}} == 'failure'
+      # if: ${{steps.run_tests.outcome}} == 'failure'
+      if: steps.run_tests.outcome != 'success'
       # if: always()
       uses: appleboy/telegram-action@master
       with:
