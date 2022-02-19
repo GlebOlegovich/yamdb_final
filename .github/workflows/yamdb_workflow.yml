@@ -48,7 +48,7 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
-          ${{ steps.run_tests.* }}
+          ${{ steps.run_tests.outputs.mix-compile--warnings-as-errors }}
 
           Ошибка при тестировании - ${{ github.repository }}
 
