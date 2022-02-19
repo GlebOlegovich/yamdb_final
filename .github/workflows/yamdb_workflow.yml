@@ -27,12 +27,12 @@ jobs:
       name: Test with flake8
       id: run_tests
       # echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
-
-      run: |
-        python -m flake8
       outputs: 
         out_tests: |
           echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
+      run: |
+        python -m flake8
+      
 
     - 
       name: Pytest
