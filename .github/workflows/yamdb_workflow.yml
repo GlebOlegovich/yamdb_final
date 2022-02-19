@@ -48,7 +48,6 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
-          ${{ Flake8 }}
 
           Ошибка при тестировании - ${{ github.repository }}
 
