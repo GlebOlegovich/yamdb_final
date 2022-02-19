@@ -33,7 +33,7 @@ jobs:
 
     - 
       if: ${{ failure() }}
-      run: echo $Flake8 
+      run: echo $Flake_8 
     - 
       name: Pytest
       run: |
