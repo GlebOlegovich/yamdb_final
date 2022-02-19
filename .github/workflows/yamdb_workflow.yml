@@ -28,12 +28,7 @@ jobs:
       # echo "::set-output name=mix-compile--warnings-as-errors::$(python -m flake8)"
       # python -m flake8
       run: |
-        export Flake_8=python -m flake8  echo "::set-env name=Flake8::Flake_8"
-      id: run_tests
-
-    - 
-      if: ${{ failure() }}
-      run: echo Flake_8 
+        python -m flake8
     - 
       name: Pytest
       run: |
@@ -50,8 +45,8 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         # ${{ join(steps.run_tests.outputs.*, '\n') }}
         message: |
-
           Ошибка при тестировании - ${{ github.repository }}
+          ${{ github.action_ref }}
 
 
   # build_and_push_to_docker_hub:
